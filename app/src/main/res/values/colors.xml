@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="blue_primary">#0077B6</color>  <!-- Soft Blue -->
+    <color name="blue_variant">#005B8E</color>  <!-- Deep Blue -->
+
+    <!-- Secondary Colors -->
+    <color name="orange_primary">#FF914D</color>  <!-- Warm Orange -->
+    <color name="orange_variant">#E76F51</color>  <!-- Dark Orange -->
+
+    <!-- Background & Surface -->
+    <color name="cream_background">#FAF3E0</color>  <!-- Light Cream -->
+    <color name="white">#FFFFFF</color>  <!-- White -->
+    <color name="black">#000000</color>  <!-- Black -->
+</resources>
