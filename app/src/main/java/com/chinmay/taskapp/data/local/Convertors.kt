@@ -3,7 +3,6 @@ package com.chinmay.taskapp.data.local
 
 import androidx.room.TypeConverter
 import com.chinmay.taskapp.domain.model.TaskStatus
-import java.util.Date
 
 class Converters {
     @TypeConverter

@@ -55,7 +55,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGeminiRepository(apiService: GeminiApiService): GeminiRepository {
-        return GeminiRepository(apiService)
+    fun provideGeminiRepository(apiService: GeminiApiService, taskDao: TaskDao): GeminiRepository {
+        return GeminiRepository(apiService, taskDao)
     }
 }

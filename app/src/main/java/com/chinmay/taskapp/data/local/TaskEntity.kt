@@ -12,3 +12,4 @@ data class TaskEntity(
     val dueDate: Long,
     val status: TaskStatus
 )
+

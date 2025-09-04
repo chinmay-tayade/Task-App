@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.*
 import com.chinmay.taskapp.domain.model.Task
 import com.chinmay.taskapp.domain.model.TaskStatus
+import com.chinmay.taskapp.presentation.theme.ColorPalette
 
 @Composable
 fun TaskSummary(tasks: List<Task>) {
@@ -32,7 +33,7 @@ fun TaskSummary(tasks: List<Task>) {
             .fillMaxWidth()
             .padding(12.dp)
             .shadow(10.dp, RoundedCornerShape(16.dp)),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF1E1E1E))
+        colors = CardDefaults.cardColors(containerColor = ColorPalette.DarkSurface)
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
@@ -52,9 +53,9 @@ fun TaskSummary(tasks: List<Task>) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xFF121212), shape = RoundedCornerShape(50)),
-                color = Color(0xFF00B0FF),
-                trackColor = Color(0xFF444444),
+                    .background(ColorPalette.DarkBackground, shape = RoundedCornerShape(50)),
+                color = ColorPalette.NeonBlue,
+                trackColor = ColorPalette.PastelBlue,
             )
 
             Spacer(modifier = Modifier.height(12.dp))

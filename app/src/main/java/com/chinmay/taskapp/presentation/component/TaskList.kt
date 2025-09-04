@@ -44,7 +44,9 @@ fun TaskList(tasks: List<Task>, viewModel: TaskViewModel) {
         ) {
             items(tasks) { task ->
                 AnimatedVisibility(visible = true, enter = fadeIn(), exit = fadeOut()) {
-                    TaskItem(task, onClick = { viewModel.updateTaskStatus(task) })
+                    TaskItem(task, onClick = { viewModel.updateTaskStatus(task) }, onDelete = {
+                        viewModel.deleteTask(task)
+                    })
                 }
             }
         }

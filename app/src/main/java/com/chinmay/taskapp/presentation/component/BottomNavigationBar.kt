@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun BottomNavigationBar(selectedScreen: String, onScreenSelected: (String) -> Unit) {
-    NavigationBar(containerColor = Color(0xFF1E1E1E)) {
+    NavigationBar(containerColor = Color(0xFFF8EDEB)) { // Soft pastel background
 
         NavigationBarItem(
             icon = { Icon(Icons.Filled.Home, contentDescription = "Home") },
@@ -18,8 +18,8 @@ fun BottomNavigationBar(selectedScreen: String, onScreenSelected: (String) -> Un
             selected = selectedScreen == "Home",
             onClick = { onScreenSelected("Home") },
             colors = NavigationBarItemDefaults.colors(
-                selectedIconColor = Color(0xFF00B0FF),
-                unselectedIconColor = Color.Gray
+                selectedIconColor = Color(0xFF9A8C98), // Muted lavender
+                unselectedIconColor = Color(0xFFC9ADA7) // Soft warm gray
             )
         )
 
@@ -29,8 +29,8 @@ fun BottomNavigationBar(selectedScreen: String, onScreenSelected: (String) -> Un
             selected = selectedScreen == "Pending",
             onClick = { onScreenSelected("Pending") },
             colors = NavigationBarItemDefaults.colors(
-                selectedIconColor = Color(0xFF00B0FF),
-                unselectedIconColor = Color.Gray
+                selectedIconColor = Color(0xFF9A8C98),
+                unselectedIconColor = Color(0xFFC9ADA7)
             )
         )
 
@@ -40,8 +40,8 @@ fun BottomNavigationBar(selectedScreen: String, onScreenSelected: (String) -> Un
             selected = selectedScreen == "Completed",
             onClick = { onScreenSelected("Completed") },
             colors = NavigationBarItemDefaults.colors(
-                selectedIconColor = Color(0xFF00B0FF),
-                unselectedIconColor = Color.Gray
+                selectedIconColor = Color(0xFF9A8C98),
+                unselectedIconColor = Color(0xFFC9ADA7)
             )
         )
 
@@ -51,8 +51,8 @@ fun BottomNavigationBar(selectedScreen: String, onScreenSelected: (String) -> Un
             selected = selectedScreen == "All",
             onClick = { onScreenSelected("All") },
             colors = NavigationBarItemDefaults.colors(
-                selectedIconColor = Color(0xFF00B0FF),
-                unselectedIconColor = Color.Gray
+                selectedIconColor = Color(0xFF9A8C98),
+                unselectedIconColor = Color(0xFFC9ADA7)
             )
         )
     }

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.airbnb.lottie.compose.*
 import com.chinmay.taskapp.R
+import com.chinmay.taskapp.presentation.theme.ColorPalette
 
 @Composable
 fun ListeningDialog(
@@ -28,66 +29,63 @@ fun ListeningDialog(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(20.dp))
-                    .shadow(8.dp, RoundedCornerShape(20.dp))
+                    .clip(RoundedCornerShape(24.dp))
+                    .shadow(10.dp, RoundedCornerShape(24.dp))
                     .background(
                         brush = Brush.verticalGradient(
-                            colors = listOf(Color(0xFF1E1E1E), Color(0xFF121212))
+                            colors = listOf(ColorPalette.PastelMint, ColorPalette.CreamWhite)
                         )
                     )
-                    .padding(20.dp),
+                    .padding(24.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-
-                    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.voice_animation))
+                    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.mic_lottie))
                     val progress by animateLottieCompositionAsState(composition)
 
                     Box(
                         modifier = Modifier
-                            .size(130.dp)
-                            .shadow(15.dp, shape = RoundedCornerShape(50.dp), ambientColor = Color(0xFF00B0FF)) // Neon Blue Glow Effect
+                            .size(140.dp) // Increased size 3x
+                            .shadow(15.dp, shape = RoundedCornerShape(65.dp), ambientColor = ColorPalette.PastelBlue) // Adjusted for larger size
                     ) {
                         LottieAnimation(
                             composition = composition,
                             progress = { progress },
-                            modifier = Modifier.size(120.dp)
+                            modifier = Modifier.size(390.dp) // Adjusted animation size
                         )
                     }
 
-                    Spacer(modifier = Modifier.height(12.dp))
-
+                    Spacer(modifier = Modifier.height(16.dp))
 
                     val alphaAnim = rememberInfiniteTransition()
                     val alpha by alphaAnim.animateFloat(
-                        initialValue = 0.3f,
+                        initialValue = 0.4f,
                         targetValue = 1f,
                         animationSpec = infiniteRepeatable(
-                            animation = tween(600, easing = LinearEasing),
+                            animation = tween(700, easing = LinearEasing),
                             repeatMode = RepeatMode.Reverse
                         )
                     )
 
                     Text(
                         text = if (recognizedText.isEmpty()) "Listening..." else recognizedText,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF00B0FF).copy(alpha = alpha)
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = ColorPalette.PastelBlue.copy(alpha = alpha)
                     )
 
-                    Spacer(modifier = Modifier.height(20.dp))
-
+                    Spacer(modifier = Modifier.height(24.dp))
 
                     Button(
                         onClick = onDismiss,
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00B0FF)),
+                        colors = ButtonDefaults.buttonColors(containerColor = ColorPalette.PastelPink), // Soft Pastel Button
                         modifier = Modifier
-                            .clip(RoundedCornerShape(12.dp))
-                            .padding(horizontal = 16.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .padding(horizontal = 20.dp)
                     ) {
-                        Text("Cancel", fontSize = 16.sp, color = Color.Black, fontWeight = FontWeight.Bold)
+                        Text("Cancel", fontSize = 18.sp, color = Color.Black, fontWeight = FontWeight.Bold)
                     }
                 }
             }

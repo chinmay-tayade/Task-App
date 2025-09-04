@@ -2,48 +2,40 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Required Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 
     <application
         android:name=".TaskApp"
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
-        android:resizeableActivity="true"
-        android:forceDarkAllowed="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:forceDarkAllowed="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TaskApp"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".presentation.Activity1"
+            android:exported="false"
+            android:theme="@style/Theme.TaskApp" />
         <!-- Main Activity -->
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.screen.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.TaskApp">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Voice Recognition Service -->
-<!--        <service-->
-<!--            android:name=".service.VoiceRecognitionService"-->
-<!--            android:permission="android.permission.BIND_VOICE_INTERACTION"-->
-<!--            android:exported="false" />-->
-
-        <!-- Gemini API Configuration (Optional) -->
-        <meta-data
-            android:name="com.google.android.gms.ai.API_KEY"
-            android:value="YOUR_GEMINI_API_KEY_HERE" />
-
     </application>
+
 </manifest>

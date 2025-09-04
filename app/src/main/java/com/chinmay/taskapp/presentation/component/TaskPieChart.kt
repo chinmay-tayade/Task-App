@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.*
 import com.chinmay.taskapp.domain.model.Task
 import com.chinmay.taskapp.domain.model.TaskStatus
+import com.chinmay.taskapp.presentation.theme.ColorPalette
 
 @Composable
 fun TaskPieChart(tasks: List<Task>) {
@@ -35,14 +36,14 @@ fun TaskPieChart(tasks: List<Task>) {
     val completedAngle = 360f * (completed.toFloat() / total)
     val pendingAngle = 360f - completedAngle
 
-    val completedColor = Color(0xFF00B0FF)
-    val pendingColor = Color(0xFFFF1744)
+    val completedColor = ColorPalette.NeonBlue
+    val pendingColor =  ColorPalette.PastelPink
 
     Card(
         modifier = Modifier
             .size(240.dp)
             .padding(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF1E1E1E)), // Dark Gray
+        colors = CardDefaults.cardColors(containerColor = ColorPalette.DarkSurface),
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {

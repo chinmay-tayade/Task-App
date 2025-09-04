@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.chinmay.taskapp"
-        minSdk 24
+        minSdk 26
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -32,6 +32,7 @@ android {
 
     buildFeatures {
         compose true
+        viewBinding true
 
     }
 
@@ -62,6 +63,15 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    android {
+        packagingOptions {
+            exclude 'META-INF/INDEX.LIST'
+            exclude 'META-INF/io.netty.versions.properties'
+            exclude 'META-INF/DEPENDENCIES'
+        }
+    }
+
 }
 
 dependencies {
@@ -78,24 +88,28 @@ dependencies {
     implementation libs.gson
     implementation libs.hilt.android
     implementation libs.androidx.material3.android
+    implementation libs.androidx.core
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.navigation.fragment.ktx
+    implementation libs.androidx.navigation.ui.ktx
     kapt libs.hilt.android.compiler
     implementation libs.androidx.hilt.navigation.compose
     implementation libs.lottie.compose
     implementation libs.material.icons.extended
     implementation libs.androidx.room.runtime
     implementation libs.androidx.room.ktx
-    //noinspection KaptUsageInsteadOfKsp
     kapt libs.androidx.room.compiler
     implementation libs.kotlinx.coroutines.android
     implementation libs.retrofit
     implementation libs.converter.gson
     implementation libs.logging.interceptor
-    implementation libs.generativeai
     implementation libs.porcupine.android
+    implementation 'com.alphacephei:vosk-android:0.3.47'
+    implementation 'androidx.activity:activity-ktx:1.8.0'
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit.v115
     androidTestImplementation libs.androidx.espresso.core.v351
 
-    //noinspection UseTomlInstead
-    implementation 'com.google.auth:google-auth-library-oauth2-http:1.3.0'
+
 }
